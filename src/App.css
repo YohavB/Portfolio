@@ -1,38 +1,190 @@
-.App {
+.app {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
+.app-header {
+  position: relative;
   background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+  background: url(.//images/bg.jpg);
+  background-size: cover;
+  background-position: center;
+    display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  height: 300px;
+  
 }
 
-.App-link {
-  color: #61dafb;
+.app-header .title {
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav {
+  z-index: 2;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-around;
+  transition: top 0.3s; /* Transition effect when sliding down (and up) */
+}
+
+.nav li {
+  width: 100%;
+  border-right: 1px solid #bbb;
+}
+
+.nav li:last-child {
+  border-right: none;
+}
+.nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav li:hover {
+  background-color: #111;
+}
+.app-about {
+  background-color: rgb(48, 47, 47);
+  padding: 10px;
+  color: #ccc;
+}
+
+.profile-pic {
+  max-block-size: 150px;
+  border-radius: 15px;
+}
+
+.app-contact {
+  background-color: chartreuse;
+  padding: 10px;
+
+  position: relative;
+}
+
+.app-resume {
+  background-color: whitesmoke;
+  padding: 10px;
+}
+
+.app-footer {
+  background-color: crimson;
+  padding: 10px;
+}
+
+.app-port {
+  position: relative;
+  background: #ccc;
+  padding: 10px;
+  height: 650px;
+}
+
+.app-port .title {
+  color: rgb(0, 0, 0);
+}
+
+.port {
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 0;
+  width: 100%;
+  height: 85%;
+  background: #ccc;
+  margin: 0;
+  padding: 0;
+}
+
+.app-port .footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 0;
+  text-align: center;
+  padding: 10px;
+  color: rgb(22, 22, 22);
+  padding-bottom: 10px;
+}
+
+.port li {
+  list-style: none;
+  position: relative;
+  width: 20%;
+  height: 100%;
+  border-right: 1px solid #000;
+  float: left;
+  box-sizing: border-box;
+  transition: 0.5s;
+  text-align: center;
+  overflow: hidden;
+}
+
+.port li:nth-child(1) {
+  background: url(.//images/rates-ps.png);
+  background-size: cover;
+  background-position: center;
+}
+.port li:nth-child(2) {
+  background: url(.//images/recipe-ps.png);
+  background-size: cover;
+  background-position: center;
+}
+.port li:nth-child(3) {
+  background: url(.//images/todo-ps.png);
+  background-size: cover;
+  background-position: center;
+}
+.port li:nth-child(4) {
+  background: url(.//images/weather-ps.png);
+  background-size: cover;
+  background-position: center;
+}
+.port li:nth-child(5) {
+  background: url(.//images/rates-ps.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.port:hover li {
+  width: 10%;
+}
+.port li:hover {
+  width: 60%;
+}
+
+.port li .content {
+  position: absolute;
+  bottom: -1000%;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  color: #fff;
+  opacity: 0;
+}
+
+.port li:hover .content {
+  bottom: 0;
+  transition: 0.7s;
+  transition-delay: 0.3s;
+  opacity: 1;
 }
