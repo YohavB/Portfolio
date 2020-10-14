@@ -1,33 +1,37 @@
 import React, { Component } from "react";
 
-
-
 export default class Header extends Component {
   render() {
     let resumeData = this.props.resumeData;
 
-/* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("nav").style.top = "0";
-  } else {
-    document.getElementById("nav").style.top = "-70px";
-  }
-  prevScrollpos = currentScrollPos;
-}
+    window.addEventListener("scroll", function () {
+      hideNav();
+      changeNavBg();
+    });
 
-// When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
-window.onscroll = function() {scrollFunction()};
+    // When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar
+    var prevScrollpos = window.pageYOffset;
+    function hideNav() {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("nav").style.top = "0";
+      } else {
+        document.getElementById("nav").style.top = "-70px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
 
-function scrollFunction() {
-  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-    document.getElementById("nav").style.backgroundColor = "#333";
-  } else {
-    document.getElementById("nav").style.backgroundColor = "transparent";
-  }
-}
+    // When the user scrolls down 300px from the top of the document, the navbar's background color will be change
+    function changeNavBg() {
+      if (
+        document.body.scrollTop > 300 ||
+        document.documentElement.scrollTop > 300
+      ) {
+        document.getElementById("nav").style.backgroundColor = "#333";
+      } else {
+        document.getElementById("nav").style.backgroundColor = "transparent";
+      }
+    }
 
     return (
       <React.Fragment>
@@ -63,7 +67,7 @@ function scrollFunction() {
           <div className="title">
             <h1>I am {resumeData.name}.</h1>
             <h3 style={{ color: "#fff", fontFamily: "sans-serif" }}>
-              I am a  {resumeData.role}.{resumeData.roleDescription}
+              I am a {resumeData.role}.{resumeData.roleDescription}
             </h3>
             <hr />
             <ul className="social">
