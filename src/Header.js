@@ -65,9 +65,9 @@ export default class Header extends Component {
             </li>
           </nav>
           <div className="title">
-            <h1>I am {resumeData.name}.</h1>
+            <h1>I am {resumeData.name}</h1>
             <h3 style={{ color: "#fff", fontFamily: "sans-serif" }}>
-              I am a {resumeData.role}.{resumeData.roleDescription}
+              I am a {resumeData.role}. {resumeData.roleDescription}
             </h3>
             <hr />
             <ul className="social">
@@ -75,8 +75,8 @@ export default class Header extends Component {
                 resumeData.socialLinks.map((item) => {
                   return (
                     <li key={item.name}>
-                      <a href={item.url} target="">
-                        <i className={item.className}></i>
+                      <a href={item.url} target="_blank" rel="noopener noreferrer">
+                        <img className="icon" src={item.icon} alt={item.name} />
                       </a>
                     </li>
                   );

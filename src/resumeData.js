@@ -1,42 +1,51 @@
 
+import gmail from "../src/icon/gmail.svg";
+import github from "../src/icon/github.svg";
+import linkedin from "../src/icon/linkedin.svg";
 
 let resumeData = {
   imagebaseurl: "http://github.com/YohavB",
   name: "Yohav",
   role: "Frontend Developer",
   linkedinId: "Your ID",
-  roleDescription:  "",
-    socialLinks: [
+  roleDescription: "j'ai fait plein de truc dans ma vie et tout",
+  socialLinks: [
     {
       name: "linkedin",
-      url: "https://www.https://www.linkedin.com/in/yohav-benoliel-b0a696187/",
-      class: "fas fa-linkedin",
+      url: "https://www.linkedin.com/in/yohav-benoliel-b0a696187/",
+      icon: linkedin,
     },
     {
       name: "github",
       url: "http://github.com/YohavB",
-      class: "fas fa-github",
+      icon: github,
     },
-   ],
+    {
+      name: "gmail",
+      url: "mailto:yohavbenoliel@gmail.com",
+      icon: gmail,
+    },
+  ],
 
   aboutme:
-"Self learner in Web Dev, thirsty to learn and live from my passion. I like to learn and create applications in various parts of software development and like to learn about new technologies.",
+    "Self learner in Web Dev, thirsty to learn and live from my passion. I like to learn and create applications in various parts of software development and like to learn about new technologies." ,
   address: "Israel",
   website: "https://github.com/YohavB",
   education: [
     {
       UniversityName: "Ort Kfar Saba",
-      specialization: "Machine Engineer's degreeField Of Study Practical civil engineering",
-     MonthOfPassing: "Jun",
+      specialization:
+        "Machine Engineer's degreeField Of Study Practical civil engineering",
+      MonthOfPassing: "Jun",
       YearOfPassing: "2019",
       Achievements: "Some Achievements",
     },
-
   ],
   work: [
     {
       CompanyName: "RADev",
-      specialization: "Webapp for wedding with digital invit and gestion of the event, Development of the webapp from scratch under the team lead      Stack: react | redux | firebase ",
+      specialization:
+        "Webapp for wedding with digital invit and gestion of the event, Development of the webapp from scratch under the team lead      Stack: react | redux | firebase ",
       MonthOfLeaving: "---",
       YearOfLeaving: "---",
       Achievements: "Some Achievements",
@@ -44,7 +53,7 @@ let resumeData = {
     {
       CompanyName: "Bleckman Breslev Painting Company ",
       specialization: "Construction Worker",
-         MonthOfLeaving: "Oct",
+      MonthOfLeaving: "Oct",
       YearOfLeaving: "2019",
       Achievements: "Some Achievements",
     },
@@ -58,14 +67,12 @@ let resumeData = {
       skillname: "CSS",
     },
     {
-        skillname: "Node.js",
-      },
-    
-      {
-        skillname: "JS",
-      },
-      
-    
+      skillname: "Node.js",
+    },
+
+    {
+      skillname: "JS",
+    },
     {
       skillname: "Reactjs",
     },

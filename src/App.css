@@ -5,17 +5,16 @@
 .app-header {
   position: relative;
   background-color: #282c34;
-  background: url(.//images/bg.jpg);
+  background: url(.//images/bg1.jpg);
   background-size: cover;
   background-position: center;
-    display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
   height: 300px;
-  
 }
 
 .app-header .title {
@@ -23,6 +22,38 @@
   top: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+
+.social {
+  display: flex;
+  margin: auto;
+  padding-top: 10px;
+  width: 20%;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+.icon {
+  height: 30px;
+  width: 30px;
+}
+
+.social li {
+  transition: 0.5s;
+  filter: grayscale();
+}
+.social li:nth-child(2) {
+  filter: invert(37%) sepia(8%) saturate(0%) hue-rotate(154deg) brightness(98%)
+    contrast(91%);
+}
+
+.social li:hover {
+  filter: none;
+}
+
+.social li:nth-child(2):hover {
+  filter: invert(100%) sepia(1%) saturate(778%) hue-rotate(326deg)
+    brightness(121%) contrast(100%);
 }
 
 .nav {
@@ -40,12 +71,11 @@
   justify-content: space-around;
   transition: top 0.3s; /* Transition effect when sliding down (and up) */
 }
-
 .nav li {
   width: 100%;
   border-right: 1px solid #bbb;
+  transition: 0.3s;
 }
-
 .nav li:last-child {
   border-right: none;
 }
@@ -56,14 +86,14 @@
   padding: 14px 16px;
   text-decoration: none;
 }
-
 .nav li:hover {
   background-color: #111;
 }
+
 .app-about {
   background-color: rgb(48, 47, 47);
   padding: 10px;
-  color: #ccc;
+  color: rgb(250, 250, 250);
 }
 
 .profile-pic {
@@ -71,33 +101,21 @@
   border-radius: 15px;
 }
 
-.app-contact {
-  background-color: chartreuse;
-  padding: 10px;
-
-  position: relative;
-}
-
 .app-resume {
   background-color: whitesmoke;
   padding: 10px;
 }
 
-.app-footer {
-  background-color: crimson;
-  padding: 10px;
-}
-
 .app-port {
   position: relative;
-  background: #ccc;
+  background: url(.//images/bg1.jpg);
   padding: 10px;
   height: 650px;
+  color: #fff;
 }
 
-.app-port .title {
-  color: rgb(0, 0, 0);
-}
+/* .app-port .title {
+} */
 
 .port {
   position: absolute;
@@ -107,7 +125,7 @@
   left: 0;
   width: 100%;
   height: 85%;
-  background: #ccc;
+  background: transparent;
   margin: 0;
   padding: 0;
 }
@@ -121,7 +139,6 @@
   bottom: 0;
   text-align: center;
   padding: 10px;
-  color: rgb(22, 22, 22);
   padding-bottom: 10px;
 }
 
@@ -188,3 +205,21 @@
   transition-delay: 0.3s;
   opacity: 1;
 }
+
+.app-contact {
+  background-color: chartreuse;
+  padding: 10px;
+
+  position: relative;
+}
+
+.app-footer {
+  background-color: black;
+  color: white;
+  }
+
+  .copyright{
+    color: grey;
+    padding-top: 15px;
+    font-size: 15px;
+  }
