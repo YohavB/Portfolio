@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 
-
-
-
 import "./App.css";
 
 export default class Porfolio extends Component {
@@ -22,6 +19,26 @@ export default class Porfolio extends Component {
                       <div className="content">
                         <h2>{item.name}</h2>
                         <p>{item.description} </p>
+                        <p>
+                          Check the code{" "}
+                          <a
+                            href={item.gitlink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Here
+                          </a>
+                        </p>
+                        <p>
+                          Test it{" "}
+                          <a
+                            href={item.live}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Here
+                          </a>
+                        </p>
                       </div>
                     </li>
                   );
@@ -31,7 +48,8 @@ export default class Porfolio extends Component {
         </div>
 
         <div className="footer">
-          You can check every work via Github in the description of each work{" "}
+          You can check every work via Github and Live App in the description of
+          each
         </div>
       </section>
     );

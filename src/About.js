@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import profile from "./images/profile.jpg"
+import profile from "./images/profile.jpg";
 
 export default class About extends Component {
   render() {
@@ -11,18 +11,14 @@ export default class About extends Component {
 
         <div>
           <h2>About Me</h2>
-          <p>{resumeData.aboutme}</p>
-          <div >
+          <div>{resumeData.aboutme}</div>
+          <h2>Contact Details</h2>
+          <div className="address">
+    <div>{resumeData.name} {resumeData.lastname}</div>
             <div>
-              <h2>Contact Details</h2>
-              <p className="address">
-                <span>{resumeData.name}</span>
-                <br></br>
-                <span>{resumeData.address}</span>
-                <br></br>
-                <span>{resumeData.website}</span>
-              </p>
+              {resumeData.city}, {resumeData.country}
             </div>
+            <div><a href="mailto:yohavbenoliel@gmail.com">{resumeData.mail} </a></div>
           </div>
         </div>
       </section>
