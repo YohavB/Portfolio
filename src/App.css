@@ -2,6 +2,26 @@
   text-align: center;
 }
 
+a:link {
+  color: whitesmoke;
+}
+
+a:visited {
+  color: gray;
+}
+
+a:hover {
+  color: whitesmoke;
+}
+
+a:active {
+  color: rgb(101, 101, 211);
+}
+
+h2 {
+  margin-top: 10px;
+}
+
 .app-header {
   position: relative;
   background-color: #282c34;
@@ -17,20 +37,26 @@
   height: 300px;
 }
 
+.title h3 {
+  color: #fff;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 5px;
+}
+
 .app-header .title {
   position: absolute;
   top: 50%;
+  justify-content: center;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
 .social {
   display: flex;
-  margin: auto;
   padding-top: 10px;
-  width: 20%;
-  justify-content: space-between;
   list-style-type: none;
+  justify-content: center;
+  justify-content: space-around;
 }
 
 .icon {
@@ -106,6 +132,45 @@
   padding: 10px;
 }
 
+.education {
+  margin-bottom: 10px;
+}
+
+.army {
+  margin-bottom: 10px;
+}
+
+.work {
+  margin-bottom: 10px;
+}
+
+.app-resume h3 {
+  margin-top: 10px;
+}
+
+.app-resume h1 {
+  text-decoration: underline;
+}
+
+.skills {
+  margin-bottom: 0px;
+}
+
+.skills h1 {
+  margin-bottom: 10px;
+}
+
+.skills .icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.skillname {
+  font-size: 30px;
+  padding-left: 5;
+}
+
 .app-port {
   position: relative;
   background: url(.//images/bg1.jpg);
@@ -113,9 +178,6 @@
   height: 650px;
   color: #fff;
 }
-
-/* .app-port .title {
-} */
 
 .port {
   position: absolute;
@@ -176,7 +238,7 @@
   background-position: center;
 }
 .port li:nth-child(5) {
-  background: url(.//images/rates-ps.png);
+  background: url(.//images/tobecont.png);
   background-size: cover;
   background-position: center;
 }
@@ -206,20 +268,88 @@
   opacity: 1;
 }
 
-.app-contact {
-  background-color: chartreuse;
-  padding: 10px;
 
+.app-contact {
+  background-color: rgb(52, 9, 87);
+  padding: 10px;
   position: relative;
+}
+
+.form_wrapper {
+  width: 70%;
+  background: #6000aa;
+  padding: 0%;
+  display: block;
+  margin: 0 auto;
+}
+
+input,
+textarea {
+  background: #8300e9;
+  border: none;
+  border-radius: 5px;
+  width: 40%;
+  color: #fff !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px !important;
+  padding: 17px 15px !important;
+  margin: 2% 3%;
+  resize: none;
+  font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  
+}
+
+::placeholder {
+  color: white;
+}
+
+input:focus,
+input.text:focus,
+.textarea:focus {
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.form_wrapper .textarea {
+  white-space: pre-line;
+  height: 150px;
+  transition: width 1s, height 0.6s;
+  }
+
+.form_wrapper .textarea:focus {
+  height: 200px;
+  width: 86%;
+}
+
+.form_wrapper button {
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 10px 12px;
+  border-radius: 0;
+  background: #19ffc0;
+  color: rgba(0, 0, 0, 0.5);
+  border: none;
+  transition: box-shadow 0.2s ease-in-out;
+  width: 100%;
+}
+
+.form_wrapper button:hover {
+  background: #f2bf2f;
+  color: #fff;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 .app-footer {
   background-color: black;
   color: white;
-  }
+}
 
-  .copyright{
-    color: grey;
-    padding-top: 15px;
-    font-size: 15px;
-  }
+.copyright {
+  color: grey;
+  padding-top: 15px;
+  font-size: 15px;
+  padding-bottom: 5px;
+}

@@ -34,18 +34,18 @@ export default class Resume extends Component {
               })}
           </div>
         </div>
-        <div className="row work">
-          <div className="three columns header-col">
+        <div >
+          <div >
             <h1>
-              <span>Work</span>
+              Work
             </h1>
           </div>
-          <div className="nine columns main-col">
+          <div >
             {resumeData.work &&
               resumeData.work.map((item) => {
                 return (
-                  <div className="row item">
-                    <div className="twelve columns">
+                  
+                    <div>
                       <h3>{item.CompanyName}</h3>
                       <p className="info">
                         {item.specialization}
@@ -56,20 +56,20 @@ export default class Resume extends Component {
                       </p>
                       <p>{item.Achievements}</p>
                     </div>
-                  </div>
+                  
                 );
               })}
           </div>
         </div>
-        <div className="row skill">
-          <div className="three columns header-col">
+        <div >
+          <div >
             <h1>
-              <span>Skills</span>
+              Skills
             </h1>
           </div>
-          <div className="nine columns main-col">
+          <div >
             <p>{resumeData.skillsDescription}</p>
-            <div className="bars">
+            <div >
               <ul className="skills">
                 {resumeData.skills &&
                   resumeData.skills.map((item) => {
@@ -78,7 +78,8 @@ export default class Resume extends Component {
                         <span
                           className={`bar-expand ${item.skillname.toLowerCase()}`}
                         ></span>
-                        <em>{item.skillname}</em>
+                        <em>{item.skillname}
+                        <img className="icon" src={item.icon} alt={item.skillname} /> </em>
                       </li>
                     );
                   })}
