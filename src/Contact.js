@@ -1,55 +1,74 @@
 import React, { useState } from "react";
+import { db } from "./firebase";
 
 const Contact = () => {
-  const [user, setUser] = useState({
-    name: "",
-    tel: "",
-    mail: "",
-    company: "",
-    message: "",
-  });
+  const [name, setName] = useState("");
+  const [company, setCompagny] = useState("");
+  const [mail, setMail] = useState("");
+  const [message, setMessage] = useState("");
+  const [phone, setPhone] = useState("");
 
-  const onChangeUser = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
-  };
+  const [loader, setLoader] = useState(false);
 
-  const onSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(user);
+    setLoader(true);
+
+    db.collection("contact")
+      .add({
+        name: name,
+        mail: mail,
+        message: message,
+        phone: phone,
+        company: company,
+      })
+      .then(() => {
+        alert("Message has been submitted");
+        setLoader(false);
+        setName("");
+        setMail("");
+        setPhone("");
+        setMessage("");
+        setCompagny("");
+      })
+      .catch((error) => {
+        alert(error.message);
+        setLoader(false);
+      });
   };
 
   return (
-    <div className="app-contact">
-      <form className="form_wrapper" onSubmit={onSubmit}>
+    <div className="app-contact" id="contact">
+      <form className="form_wrapper" onSubmit={handleSubmit}>
         <input
           placeholder="Full Name"
           type="text"
-          value={user.name}
+          value={name}
           name="name"
-          onChange={onChangeUser}
+          onChange={(e) => setName(e.target.value)}
         />
 
         <input
           placeholder="Tel."
           type="text"
-          value={user.tel}
+          value={phone}
           name="tel"
-          onChange={onChangeUser}
+          onChange={(e) => setPhone(e.target.value)}
         />
 
         <input
           placeholder="Email"
           type="email"
-          value={user.mail}
+          value={mail}
           name="mail"
-          onChange={onChangeUser}
+          onChange={(e) => setMail(e.target.value)}
         />
         <input
           placeholder="Company"
           type="text"
-          value={user.company}
+          value={company}
           name="company"
-          onChange={onChangeUser}
+          onChange={(e) => setCompagny(e.target.value)}
         />
 
         <textarea
@@ -58,12 +77,17 @@ const Contact = () => {
           placeholder="Don't be ashame"
           className="textarea"
           type="textarea"
-          value={user.message}
+          value={message}
           name="message"
-          onChange={onChangeUser}
+          onChange={(e) => setMessage(e.target.value)}
         />
 
-        <button onClick={onSubmit}>Submit</button>
+        <button
+          style={{ background: loader ? "#ccc" : "" }}
+          onClick={handleSubmit}
+        >
+          Submit
+        </button>
       </form>
     </div>
   );

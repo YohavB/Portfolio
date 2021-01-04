@@ -6,13 +6,17 @@ import css3 from "../src/icon/css3.svg";
 import javascript from "../src/icon/javascript.svg";
 import nodejs from "../src/icon/nodejs.svg";
 import html5 from "../src/icon/html5.svg";
+import whatsapp from "../src/icon/whatsapp.svg";
+import phone from "../src/icon/phone.svg";
+import mongodb from "../src/icon/mongodb.svg";
+import firebase from "../src/icon/google-firebase.svg";
 
 let resumeData = {
   imagebaseurl: "http://github.com/YohavB",
   name: "Yohav",
   lastname: "Benoliel",
   role: "Frontend Developer",
-  roleDescription: "",
+  roleDescription: "(and a bit of backend)",
   socialLinks: [
     {
       name: "linkedin",
@@ -29,10 +33,20 @@ let resumeData = {
       url: "mailto:yohavbenoliel@gmail.com",
       icon: gmail,
     },
+    {
+      name: "whatsapp",
+      url: "https://api.whatsapp.com/send?phone=972543188628",
+      icon: whatsapp,
+    },
+    {
+      name: "phone",
+      url: "tel:+972543188628",
+      icon: phone,
+    },
   ],
 
   aboutme:
-    "Self learner in Web Dev, thirsty to learn and live from my passion. I like to learn and create applications in various parts of software development and like to learn about new technologies.",
+    "Self learner in Web Dev, thirsty to learn and live from my passion. I like to study and create applications in various parts of software development and like to read about new technologies and understand them.",
   country: "Israel",
   city: "Raanana",
   mail: "yohavbenoliel@gmail.com",
@@ -104,6 +118,14 @@ let resumeData = {
       skillname: "Reactjs",
       icon: react,
     },
+    {
+      skillname: "Firebase",
+      icon: firebase,
+    },
+    {
+      skillname: "MongoDB",
+      icon: mongodb,
+    },
   ],
   portfolio: [
     {
@@ -129,14 +151,16 @@ let resumeData = {
     },
     {
       name: "Weather Website",
-      description: "Get some weather from all the world just by searching, the CSS change depends on the result and work with API",
+      description:
+        "Get some weather from all the world just by searching, the CSS change depends on the result and work with API",
       gitlink: "https://github.com/YohavB/weather-app",
       live: "",
     },
     {
-      name: "Next Project",
-      description: "to be continued....",
-      gitlink: "",
+      name: "Sweet Wonders",
+      description:
+        "A showcase site for a pastry chef, Home page, Menus, Intagram gallery, and conact form. In addition there is an admin side which allows you to update the content of the menus. MERN CRUD app.",
+      gitlink: "https://github.com/YohavB/Sweet-Wonders",
       live: "",
     },
   ],

@@ -65,10 +65,9 @@ export default class Header extends Component {
             </li>
           </nav>
           <div className="title">
-            <h1>I am {resumeData.name}</h1>
-            <h3>
-              I am a {resumeData.role} {resumeData.roleDescription}
-            </h3>
+            <h1>{resumeData.name}</h1>
+            <h3>{resumeData.role} </h3>
+            <h5>{resumeData.roleDescription}</h5>
 
             <ul className="social">
               {resumeData.socialLinks &&

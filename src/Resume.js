@@ -7,7 +7,7 @@ export default class Resume extends Component {
     let resumeData = this.props.resumeData;
     return (
       <section className="app-resume" id="resume">
-        <div className="education">
+        <div className="resume-section">
           <h1>Education</h1>
           <div>
             {resumeData.education &&
@@ -28,7 +28,7 @@ export default class Resume extends Component {
           </div>
         </div>
 
-        <div className="work">
+        <div className="resume-section">
           <h1>Work</h1>
           <div>
             {resumeData.work &&
@@ -49,7 +49,7 @@ export default class Resume extends Component {
           </div>
         </div>
 
-        <div className="army">
+        <div className="resume-section">
           <h1>Military Service</h1>
           <div>
             {resumeData.army &&
