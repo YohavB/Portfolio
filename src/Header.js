@@ -1,4 +1,18 @@
 import React, { Component } from "react";
+import Resume from "./Yohav's Resume.pdf"
+import 'font-awesome/css/font-awesome.min.css';
+
+
+
+
+class MyComponent extends React.Component {
+  render() {
+      return (
+          //<a href={Resume} download>My CV</a>
+          <a href={Resume} download="Yohav's Resume"> <button className="downloadbtn"><i className="fa fa-download"></i> My CV </button></a>
+      )
+  }
+}
 
 export default class Header extends Component {
   render() {
@@ -81,10 +95,12 @@ export default class Header extends Component {
                       >
                         <img className="icon" src={item.icon} alt={item.name} />
                       </a>
+          
                     </li>
                   );
                 })}
             </ul>
+            <MyComponent/>
           </div>
         </header>
       </React.Fragment>

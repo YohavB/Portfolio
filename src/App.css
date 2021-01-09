@@ -34,7 +34,7 @@ h2 {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  height: 300px;
+  height: 350px;
 }
 
 .title h3 {
@@ -80,6 +80,21 @@ h2 {
 .social li:nth-child(2):hover {
   filter: invert(100%) sepia(1%) saturate(778%) hue-rotate(326deg)
     brightness(121%) contrast(100%);
+}
+
+/* Style buttons */
+.downloadbtn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Darker background on mouse-over */
+.downloadbtn:hover {
+  background-color: RoyalBlue;
 }
 
 .nav {
