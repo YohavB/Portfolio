@@ -72,8 +72,16 @@ let resumeData = {
 
   work: [
     {
+      CompanyName: "Freelance Project",
+      specialization: "Freelance Fullstack developer",
+      MonthOfLeaving: "Present",
+      YearOfLeaving: "",
+      Achievements:
+        "A showcase site for a pastry chef. Client side with Home page, Menus, Gallery, and Contact form. An Admin side which allows updating content of the menus and gallery. MERN CRUD app. ",
+    },
+    {
       CompanyName: "RADev",
-      specialization: "Junior Frontend developer",
+      specialization: "Freelance Frontend developer",
       MonthOfLeaving: "Present",
       YearOfLeaving: "",
       Achievements:
