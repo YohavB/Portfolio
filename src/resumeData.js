@@ -140,28 +140,28 @@ let resumeData = {
       description:
         "Simple Web app, get some recipes by searching an ingredient, work with API",
       gitlink: "https://github.com/YohavB/recipe-app",
-      live: "",
+      live: "https://recipesapp-yb.web.app/",
     },
     {
       name: "Todo List",
       description:
-        "The obvious Todo List. Add and delete some tasks, order by completed or uncompleted.",
+        "The obvious Todo List. Add and delete some tasks, save the list in local data, ordering by completed or uncompleted.",
       gitlink: "https://github.com/YohavB/todolist",
-      live: "",
+      live: "https://todolist-yb.web.app/",
     },
     {
       name: "Weather Website",
       description:
-        "Get some weather from all the world just by searching, the CSS change depends on the result and work with API",
+        "Get live weather from all the world just by searching, the CSS change depends on the result and work with API",
       gitlink: "https://github.com/YohavB/weather-app",
-      live: "",
+      live: "https://weatherapp-yb.web.app/",
     },
     {
       name: "Sweet Wonders",
       description:
-        "A showcase site for a pastry chef, Home page, Menus, Intagram gallery, and conact form. In addition there is an admin side which allows you to update the content of the menus. MERN CRUD app.",
+        "A showcase site for a pastry chef, Home page, Menus, Intagram gallery, and contact form. In addition there is an admin side which allows update the content of the menus. MERN CRUD app.",
       gitlink: "https://github.com/YohavB/Sweet-Wonders",
-      live: "",
+      live: "https://sweet-wonders.web.app/",
     },
   ],
 };

@@ -84,17 +84,18 @@ h2 {
 
 /* Style buttons */
 .downloadbtn {
-  background-color: DodgerBlue;
+  background-color: rgb(19, 36, 53);
   border: none;
   color: white;
-  padding: 12px 30px;
+  padding: 10px 30px;
   cursor: pointer;
   font-size: 20px;
+  margin-top: 10px;
 }
 
 /* Darker background on mouse-over */
 .downloadbtn:hover {
-  background-color: RoyalBlue;
+  background-color: rgb(101, 124, 194);
 }
 
 .nav {
