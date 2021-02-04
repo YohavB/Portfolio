@@ -1,15 +1,15 @@
-import gmail from "../src/icon/gmail.svg";
-import github from "../src/icon/github.svg";
-import linkedin from "../src/icon/linkedin.svg";
-import react from "../src/icon/react.svg";
-import css3 from "../src/icon/css3.svg";
-import javascript from "../src/icon/javascript.svg";
-import nodejs from "../src/icon/nodejs.svg";
-import html5 from "../src/icon/html5.svg";
-import whatsapp from "../src/icon/whatsapp.svg";
-import phone from "../src/icon/phone.svg";
-import mongodb from "../src/icon/mongodb.svg";
-import firebase from "../src/icon/google-firebase.svg";
+import gmail from "../icon/gmail.svg";
+import github from "../icon/github.svg";
+import linkedin from "../icon/linkedin.svg";
+import react from "../icon/react.svg";
+import css3 from "../icon/css3.svg";
+import javascript from "../icon/javascript.svg";
+import nodejs from "../icon/nodejs.svg";
+import html5 from "../icon/html5.svg";
+import whatsapp from "../icon/whatsapp.svg";
+import phone from "../icon/phone.svg";
+import mongodb from "../icon/mongodb.svg";
+import firebase from "../icon/google-firebase.svg";
 
 let resumeData = {
   imagebaseurl: "http://github.com/YohavB",
@@ -17,6 +17,33 @@ let resumeData = {
   lastname: "Benoliel",
   role: "Frontend Developer",
   roleDescription: "(and a bit of backend)",
+
+    home: "Home",
+    about: "About",
+    resume: "Resume",
+    works: "Works",
+    contact: "Contact",
+    mycv: "My CV",
+    aboutmetext: "About Me",
+    contactdetails: "Contact Details",
+    educationtext: "Education",
+    worktext: "Work",
+    military: "Military Service",
+    skillstext: "Skills",
+    languagetext:"Language",
+    checkmyworks: "Check Out Some of My Works",
+    seecode: "Check the code ",
+    seelive: "Test the live version ",
+    here: "Here",
+    checktext:
+      "You can check every work in live and see the code on Github in their descriptions",
+    fullname: "Full Name",
+    tel: "Tel.",
+    email: "Email",
+    company: "Company",
+    dontbeashame: "Don't be ashame",
+    submit: "Submit",
+  
   socialLinks: [
     {
       name: "linkedin",
@@ -74,8 +101,8 @@ let resumeData = {
     {
       CompanyName: "Freelance Project",
       specialization: "Freelance Fullstack developer",
-      MonthOfLeaving: "Present",
-      YearOfLeaving: "",
+      MonthOfLeaving: "Nov",
+      YearOfLeaving: "2020",
       Achievements:
         "A showcase site for a pastry chef. Client side with Home page, Menus, Gallery, and Contact form. An Admin side which allows updating content of the menus and gallery. MERN CRUD app. ",
     },
@@ -104,7 +131,7 @@ let resumeData = {
     },
   ],
   skillsDescription:
-    "I learned all the skills downthere by myself thanks to the INTERNET ans his infinity of Indians developers ",
+    "I learned, and i'm learning, all the skills below by myself thanks to the INTERNET ans his infinity of Indians developers ",
   skills: [
     {
       skillname: "HTML",
@@ -133,6 +160,20 @@ let resumeData = {
     {
       skillname: "MongoDB",
       icon: mongodb,
+    },
+  ],
+  language: [
+    {
+      langName: "English",
+      icon: "",
+    },
+    {
+      langName: "French",
+      icon: "",
+    },
+    {
+      langName: "Hebrew",
+      icon: "",
     },
   ],
   portfolio: [

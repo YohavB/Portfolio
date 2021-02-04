@@ -1,0 +1,5 @@
+[
+  { "name": "English", "code": "en-EN", "flag": "EN" },
+  { "name": "French", "code": "fr-FR", "flag": "FR" },
+  { "name": "Hebrew", "code": "he", "flag": "HE" }
+]

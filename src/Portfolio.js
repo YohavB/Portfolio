@@ -9,7 +9,7 @@ export default class Porfolio extends Component {
       <section className="app-port" id="portfolio">
         <div>
           <div>
-            <h1 className="title">Check Out Some of My Works.</h1>
+            <h1 className="title">{resumeData.checkmyworks}</h1>
 
             <ul className="port">
               {resumeData.portfolio &&
@@ -20,23 +20,23 @@ export default class Porfolio extends Component {
                         <h2>{item.name}</h2>
                         <p>{item.description} </p>
                         <p>
-                          Check the code{" "}
+                          {resumeData.seecode}
                           <a
                             href={item.gitlink}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            Here
+                            {resumeData.here}
                           </a>
                         </p>
                         <p>
-                          Test it{" "}
+                          {resumeData.seelive}
                           <a
                             href={item.live}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            Here
+                            {resumeData.here}
                           </a>
                         </p>
                       </div>
@@ -48,8 +48,7 @@ export default class Porfolio extends Component {
         </div>
 
         <div className="footer">
-          You can check every work via Github and Live App in the description of
-          each
+        {resumeData.checktext}
         </div>
       </section>
     );

@@ -8,7 +8,7 @@ export default class Resume extends Component {
     return (
       <section className="app-resume" id="resume">
         <div className="resume-section">
-          <h1>Education</h1>
+          <h1>{resumeData.educationtext}</h1>
           <div>
             {resumeData.education &&
               resumeData.education.map((item) => {
@@ -29,7 +29,7 @@ export default class Resume extends Component {
         </div>
 
         <div className="resume-section">
-          <h1>Work</h1>
+          <h1>{resumeData.worktext}</h1>
           <div>
             {resumeData.work &&
               resumeData.work.map((item) => {
@@ -50,7 +50,7 @@ export default class Resume extends Component {
         </div>
 
         <div className="resume-section">
-          <h1>Military Service</h1>
+          <h1>{resumeData.military}</h1>
           <div>
             {resumeData.army &&
               resumeData.army.map((item) => {
@@ -71,7 +71,7 @@ export default class Resume extends Component {
         </div>
 
         <div className="skills">
-          <h1>Skills</h1>
+          <h1>{resumeData.skillstext}</h1>
           <div>
             <div>{resumeData.skillsDescription} : </div>
             <ul>
@@ -89,6 +89,21 @@ export default class Resume extends Component {
                   );
                 })}
             </ul>
+          </div>
+        </div>
+
+        <div className="resume-section">
+          <h1>{resumeData.languagetext}</h1>
+          <div>
+            {resumeData.language &&
+              resumeData.language.map((item) => {
+                return (
+                  <li>
+                    <img className="icon" src={item.icon} alt={item.langName} />{" "}
+                    <em className="skillname">{item.langName}</em>
+                  </li>
+                );
+              })}
           </div>
         </div>
       </section>

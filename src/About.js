@@ -10,9 +10,9 @@ export default class About extends Component {
         <img className="profile-pic" src={profile} alt="" />
 
         <div>
-          <h2>About Me</h2>
+          <h2>{resumeData.aboutmetext}</h2>
           <div className="aboutme">{resumeData.aboutme}</div>
-          <h2>Contact Details</h2>
+          <h2>{resumeData.contactdetails}</h2>
           <div className="address">
     <div>{resumeData.name} {resumeData.lastname}</div>
             <div>

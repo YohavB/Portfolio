@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { db } from "./firebase";
 
-const Contact = () => {
+const Contact = (props) => {
   const [name, setName] = useState("");
   const [company, setCompagny] = useState("");
   const [mail, setMail] = useState("");
@@ -37,11 +37,13 @@ const Contact = () => {
       });
   };
 
+//
+
   return (
-    <div className="app-contact" id="contact">
+    <div className={props.selectedLang === "he" ? "app-contact-rtl" : "app-contact"} id="contact">
       <form className="form_wrapper" onSubmit={handleSubmit}>
         <input
-          placeholder="Full Name"
+          placeholder={props.resumeData.fullname}
           type="text"
           value={name}
           name="name"
@@ -49,7 +51,7 @@ const Contact = () => {
         />
 
         <input
-          placeholder="Tel."
+          placeholder={props.resumeData.tel}
           type="text"
           value={phone}
           name="tel"
@@ -57,14 +59,14 @@ const Contact = () => {
         />
 
         <input
-          placeholder="Email"
+          placeholder={props.resumeData.email}
           type="email"
           value={mail}
           name="mail"
           onChange={(e) => setMail(e.target.value)}
         />
         <input
-          placeholder="Company"
+          placeholder={props.resumeData.company}
           type="text"
           value={company}
           name="company"
@@ -74,7 +76,7 @@ const Contact = () => {
         <textarea
           rows="5"
           cols="33"
-          placeholder="Don't be ashame"
+          placeholder={props.resumeData.dontbeashame}
           className="textarea"
           type="textarea"
           value={message}
@@ -86,7 +88,7 @@ const Contact = () => {
           style={{ background: loader ? "#ccc" : "" }}
           onClick={handleSubmit}
         >
-          Submit
+          {props.resumeData.submit}
         </button>
       </form>
     </div>
