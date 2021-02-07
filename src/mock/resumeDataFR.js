@@ -10,6 +10,9 @@ import whatsapp from "../icon/whatsapp.svg";
 import phone from "../icon/phone.svg";
 import mongodb from "../icon/mongodb.svg";
 import firebase from "../icon/google-firebase.svg";
+import ukflag from "../icon/united-kingdom.svg";
+import frflag from "../icon/france.svg";
+import ilflag from "../icon/israel.svg";
 
 let resumeData = {
   imagebaseurl: "http://github.com/YohavB",
@@ -17,7 +20,6 @@ let resumeData = {
   lastname: "Benoliel",
   role: "Frontend Développeur",
   roleDescription: "(et un peu de backend)",
-
 
   home: "Accueil",
   about: "A Propos",
@@ -31,7 +33,7 @@ let resumeData = {
   worktext: "Travaux",
   military: "Service Militaire",
   skillstext: "Compétences",
-  languagetext:"Langage",
+  languagetext: "Langage",
   checkmyworks: "Découvrez certains de mes travaux",
   seecode: "Regardez le code ",
   seelive: "Testez la version live ",
@@ -165,17 +167,17 @@ let resumeData = {
   ],
   language: [
     {
-      langName:"Anglais",
-      icon:""
+      langName: "Anglais",
+      icon: ukflag,
     },
     {
-      langName:"Français",
-      icon:""
+      langName: "Français",
+      icon: frflag,
     },
     {
-      langName:"Hébreu",
-      icon:""
-    }
+      langName: "Hébreu",
+      icon: ilflag,
+    },
   ],
   portfolio: [
     {

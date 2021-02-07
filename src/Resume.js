@@ -92,19 +92,19 @@ export default class Resume extends Component {
           </div>
         </div>
 
-        <div className="resume-section">
+        <div className="language">
           <h1>{resumeData.languagetext}</h1>
-          <div>
+          <ul>
             {resumeData.language &&
               resumeData.language.map((item) => {
                 return (
                   <li>
                     <img className="icon" src={item.icon} alt={item.langName} />{" "}
-                    <em className="skillname">{item.langName}</em>
+                    <em className="languageName">{item.langName}</em>
                   </li>
                 );
               })}
-          </div>
+          </ul>
         </div>
       </section>
     );

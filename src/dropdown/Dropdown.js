@@ -28,7 +28,7 @@ export default function Dropdown({
 
   function filter(options) {
     return options.filter(
-      (option) => option[label].toLowerCase().indexOf(query.toLowerCase) > -1
+      (option) => option[label].toLowerCase().indexOf(query.toLowerCase()) > -1
     );
   }
 

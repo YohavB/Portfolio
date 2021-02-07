@@ -1,42 +1,68 @@
-import React, { useState } from "react";
-import Dropdown from "../dropdown/Dropdown";
+import React, { useEffect, useState } from "react";
 import LangDown from "../dropdown/LangDown";
-import languages from "./language.json";
+import ukflag from "../icon/united-kingdom.svg";
+import frflag from "../icon/france.svg";
+import ilflag from "../icon/israel.svg";
 
-export default function LangSelector() {
-  const [value, setValue] = useState(null);
+export default function LangSelector(props) {
+  const [defaultflag, setDefaultflag] = useState(null);
+  const navlang = navigator.language;
+
+  useEffect(() => {
+    setflag();
+  }, []);
+
+  useEffect(() => {
+    setOptionFlag();
+  }, [props.selectedLang]);
+
+  const data = [
+    { name: "English", code: "en-EN", flag: ukflag, func: props.toEn },
+    { name: "French", code: "fr-FR", flag: frflag, func: props.toFr },
+    { name: "Hebrew", code: "he", flag: ilflag, func: props.toHe },
+  ];
+
+  function setflag() {
+    switch (navlang) {
+      case "fr-FR":
+        setDefaultflag(frflag);
+        break;
+      case "en-EN":
+        setDefaultflag(ukflag);
+        break;
+      case "he":
+        setDefaultflag(ilflag);
+        break;
+      default:
+        setDefaultflag(ukflag);
+    }
+  }
+
+  function setOptionFlag() {
+    switch (props.selectedLang) {
+      case "fr-FR":
+        setDefaultflag(frflag);
+        break;
+      case "en-EN":
+        setDefaultflag(ukflag);
+        break;
+      case "he":
+        setDefaultflag(ilflag);
+        break;
+      default:
+        setDefaultflag(ukflag);
+    }
+  }
 
   return (
-    <div style={{ width: 200 }}>
+    <div className={`langdrop ${props.selectedLang === "he" ? "rtl" : null}`}>
       <LangDown
-        prompt="Select Language ..."
-        options={languages}
-        value={value}
-        onChange={(val) => setValue(val)}
-      />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <Dropdown
-        prompt="Select Language ..."
-        options={languages}
+        prompt={defaultflag}
+        selectedLang={props.selectedLang}
+        options={data}
         id="code"
-        label="name"
-        value={value}
-        onChange={(val) => setValue(val)}
+        label="flag"
       />
     </div>
   );
-}
-
-{
-  /* <div>{props.selectedLang}</div>
-<button onClick={props.toFr}>FR</button>
-<button onClick={props.toEn}>EN</button>
-<button onClick={props.toHe}>HE</button> */
 }

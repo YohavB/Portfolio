@@ -1,27 +1,62 @@
-import React, { useState } from "react";
-import "./styles.css";
+import React, { useState, useEffect, useRef } from "react";
 
-export default function LangDown({ options, prompt, value, onChange }) {
+export default function LangDown({ options, prompt, label, id, selectedLang }) {
   const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    ["click", "touchend"].forEach((e) => {
+      document.addEventListener(e, toggle);
+    });
+    return () =>
+      ["click", "touchend"].forEach((e) => {
+        document.removeEventListener(e, toggle);
+      });
+  }, []);
+
+  function toggle(e) {
+    setOpen(e && e.target === ref.current);
+  }
+
+  function selectOption() {
+    setOpen(false);
+  }
 
   return (
-    <div className="dropdown">
-      <div className="control" onClick={() => setOpen((prev) => !prev)}>
-        <div className="selected-value">{value ? value.name : prompt}</div>
-        <div className={`arrow ${open ? "open" : null}`} />
-      </div>
-      <div className={`options ${open ? "open" : null}`}>
-        {options.map((option) => (
+    <div>
+      <div className="dropdown">
+        <div className="control">
           <div
-            className={`option ${value === option ? "selected" : null}`}
-            onClick={() => {
-              onChange(option);
-              setOpen(false);
-            }}
+            className={`selected-value ${selectedLang === "he" ? "rtl" : null}`}
           >
-            {option.name}
+            <img
+              ref={ref}
+              alt={label}
+              src={prompt}
+              onClick={toggle}
+              onTouchEnd={toggle}
+            />
           </div>
-        ))}
+        </div>
+        <div className={`options ${open ? "open" : null}`}>
+          {options.map((option) => (
+            <div
+              key={option[id]}
+              className="option"
+              onClick={() => {
+                selectOption(option);
+              }}
+              onTouchEnd={() => {
+                selectOption(option);
+              }}
+            >
+              <div className="divoption" onClick={option.func}>
+                <img alt={option[id]} src={option.flag} />
+                <div>{option[id]}</div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

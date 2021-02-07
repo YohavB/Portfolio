@@ -10,6 +10,9 @@ import whatsapp from "../icon/whatsapp.svg";
 import phone from "../icon/phone.svg";
 import mongodb from "../icon/mongodb.svg";
 import firebase from "../icon/google-firebase.svg";
+import ukflag from "../icon/united-kingdom.svg";
+import frflag from "../icon/france.svg";
+import ilflag from "../icon/israel.svg";
 
 let resumeData = {
   imagebaseurl: "http://github.com/YohavB",
@@ -165,15 +168,15 @@ let resumeData = {
   language: [
     {
       langName: "English",
-      icon: "",
+      icon: ukflag,
     },
     {
       langName: "French",
-      icon: "",
+      icon: frflag
     },
     {
       langName: "Hebrew",
-      icon: "",
+      icon: ilflag
     },
   ],
   portfolio: [

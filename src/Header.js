@@ -68,14 +68,13 @@ export default function Header(props) {
               {resumeData.contact}
             </a>
           </li>
-          <li>
-            <LangSelector
-              selectedLang={props.selectedLang}
-              toFr={props.toFr}
-              toEn={props.toEn}
-              toHe={props.toHe}
-            />
-          </li>
+
+          <LangSelector
+            selectedLang={props.selectedLang}
+            toFr={props.toFr}
+            toEn={props.toEn}
+            toHe={props.toHe}
+          />
         </nav>
         <div className="title">
           <h1>{resumeData.name}</h1>

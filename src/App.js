@@ -7,18 +7,22 @@ import Contact from "./Contact";
 import Footer from "./Footer";
 
 import "./App.css";
+
 import resumeDataEN from "./mock/resumeDataEN";
 import resumeDataFR from "./mock/resumeDataFR";
 import resumeDataHE from "./mock/resumeDataHE";
-import LangSelector from "./mock/LangSelector";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       selectedLang: navigator.language,
-      resumeData: resumeDataEN,
+      resumeData: "",
     };
+  }
+
+  componentDidMount() {
+    this.setState({ resumeData: this.getSelectedLang() });
   }
 
   toFr = (e) => {
@@ -36,7 +40,7 @@ class App extends Component {
     this.setState({ selectedLang: "he", resumeData: resumeDataHE });
   };
 
-  setSelectedLang = () => {
+  getSelectedLang = () => {
     switch (this.state.selectedLang) {
       case "en-EN":
         return resumeDataEN;
@@ -52,20 +56,22 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <LangSelector/>
-        {/* <Header
+        <Header
           resumeData={this.state.resumeData}
           selectedLang={this.state.selectedLang}
           toFr={this.toFr}
           toEn={this.toEn}
           toHe={this.toHe}
         />
-      
+
         <About resumeData={this.state.resumeData} />
         <Resume resumeData={this.state.resumeData} />
         <Portfolio resumeData={this.state.resumeData} />
-        <Contact resumeData={this.state.resumeData} selectedLang={this.state.selectedLang} />
-        <Footer resumeData={this.state.resumeData} /> */}
+        <Contact
+          resumeData={this.state.resumeData}
+          selectedLang={this.state.selectedLang}
+        />
+        <Footer resumeData={this.state.resumeData} />
       </div>
     );
   }

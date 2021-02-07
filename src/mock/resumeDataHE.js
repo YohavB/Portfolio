@@ -10,6 +10,9 @@ import whatsapp from "../icon/whatsapp.svg";
 import phone from "../icon/phone.svg";
 import mongodb from "../icon/mongodb.svg";
 import firebase from "../icon/google-firebase.svg";
+import ukflag from "../icon/united-kingdom.svg";
+import frflag from "../icon/france.svg";
+import ilflag from "../icon/israel.svg";
 
 let resumeData = {
   imagebaseurl: "http://github.com/YohavB",
@@ -30,13 +33,12 @@ let resumeData = {
   worktext: "עבודות",
   military: "שירות צבאי",
   skillstext: "כישורים",
-  languagetext:"שפות",
+  languagetext: "שפות",
   checkmyworks: "גלו חלק מעבודותיי",
   seecode: "בדקו את הקוד ",
   seelive: "תתנסו בגרסת לייב ",
   here: "פה",
-  checktext:
-    "אתם יכולים לראות את הקוד ולהתנסות בגרסת לייב בכל התאורים שלהם",
+  checktext: "אתם יכולים לראות את הקוד ולהתנסות בגרסת לייב בכל התאורים שלהם",
   fullname: "שם מלא",
   tel: "טל.",
   email: "אימייל",
@@ -127,7 +129,8 @@ let resumeData = {
       specialization: "מוכר",
       MonthOfLeaving: "יוני",
       YearOfLeaving: "2016",
-      Achievements: "מוכר טלפוני בחברה המתעסקת בניהול חשבונות לקוחותיהם בשוק ההון",
+      Achievements:
+        "מוכר טלפוני בחברה המתעסקת בניהול חשבונות לקוחותיהם בשוק ההון",
     },
   ],
   skillsDescription:
@@ -164,17 +167,17 @@ let resumeData = {
   ],
   language: [
     {
-      langName:"אנגלית",
-      icon:""
+      langName: "אנגלית",
+      icon: ukflag,
     },
     {
-      langName:"צרפתית",
-      icon:""
+      langName: "צרפתית",
+      icon: frflag,
     },
     {
-      langName:"עברית",
-      icon:""
-    }
+      langName: "עברית",
+      icon: ilflag,
+    },
   ],
   portfolio: [
     {

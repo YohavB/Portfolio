@@ -91,6 +91,7 @@ h2 {
   cursor: pointer;
   font-size: 20px;
   margin-top: 10px;
+  border-radius: 5px;
 }
 
 /* Darker background on mouse-over */
@@ -107,20 +108,24 @@ h2 {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
   background-color: transparent;
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
   transition: top 0.3s; /* Transition effect when sliding down (and up) */
 }
+
 .nav li {
   width: 100%;
   border-right: 1px solid #bbb;
   transition: 0.3s;
 }
-.nav li:last-child {
+
+.nav li:nth-child(5) {
   border-right: none;
 }
+
+
 .nav li a {
   display: block;
   color: white;
@@ -141,19 +146,20 @@ h2 {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
   background-color: transparent;
   display: flex;
   flex-direction: row-reverse;
-
   justify-content: space-around;
-
   transition: top 0.3s; /* Transition effect when sliding down (and up) */
 }
 .navrtl li {
   width: 100%;
   border-right: 1px solid #bbb;
   transition: 0.3s;
+}
+
+.navrtl li:last-child {
+  border-right: none;
 }
 
 .navrtl li a {
@@ -201,6 +207,7 @@ h2 {
 
 .app-resume h1 {
   text-decoration: underline;
+  margin-top: 15px;
 }
 
 .skills {
@@ -213,13 +220,39 @@ h2 {
 
 .skills .icon {
   position: relative;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
 }
 
 .skillname {
   font-size: 30px;
-  padding-left: 5;
+}
+
+.language {
+  margin-bottom: 0px;
+}
+
+.language h1 {
+  margin-bottom: 10px;
+}
+
+.language .icon {
+  width: 25px;
+  height: 25px;
+  bottom: 15px;
+}
+
+.language ul {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+  list-style-type: none;
+  margin: auto;
+  max-width: 500px;
+}
+
+.languageName {
+  font-size: 25px;
 }
 
 .app-port {
@@ -340,8 +373,8 @@ h2 {
   margin: 0 auto;
 }
 
-.form_wrapper.input,
-.form_wrapper.textarea {
+.form_wrapper input,
+.form_wrapper textarea {
   background: #8300e9;
   border: none;
   border-radius: 5px;
@@ -367,13 +400,13 @@ input.text:focus,
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
-.form_wrapper .textarea {
+.form_wrapper textarea {
   white-space: pre-line;
   height: 150px;
   transition: width 1s, height 0.6s;
 }
 
-.form_wrapper .textarea:focus {
+.form_wrapper textarea:focus {
   height: 200px;
   width: 86%;
 }
@@ -410,78 +443,97 @@ input.text:focus,
   padding-bottom: 5px;
 }
 
-
 /*dropdown*/
 
+.langdrop {
+  margin: auto;
+  margin-right: 10px;
+}
+
+.langdrop .rtl {
+  margin: auto;
+  margin-left: 10px;
+}
+
 .dropdown {
-  position: relative;
-  color: #333;
+  color: rgb(255, 251, 251);
   cursor: default;
 }
 
-.dropdown .arrow {
-  border-color: #999 transparent transparent;
-  border-style: solid;
-  border-width: 5px 5px 0;
-  content: " ";
-  display: block;
-  height: 0;
-  margin-top: 0.3rem;
-  position: absolute;
-  right: 10px;
-  top: 14px;
-  width: 0;
-}
-
-.dropdown .arrow.open {
-  border-color: transparent transparent #999;
-  border-width: 0 5px 5px;
-}
-
-.dropdown .selected-value input {
+.dropdown .selected-value {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 3px;
   line-height: 1.5;
   font-size: 1rem;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 2px;
+  background-color: transparent;
+  border: 1px solid transparent;
   box-sizing: border-box;
-  cursor: default;
   outline: none;
-  padding: 8px 52px 8px 10px;
   transition: all 200ms ease;
   width: 100%;
 }
 
+.dropdown .selected-value.rtl {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .dropdown .options {
-  display: none;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  display: block;
+  background-color: transparent;
+  border: 1px solid transparent;
   box-sizing: border-box;
   margin-top: -1px;
-  max-height: 200px;
-  overflow-y: auto;
+  opacity: 0;
+  max-height: 0;
   position: absolute;
   top: 100%;
   width: 100%;
-  z-index: 1000;
+  z-index: 10;
+  height: auto;
+  transition: all 0.3s ease-in;
   -webkit-overflow-scrolling: touch;
+  overflow-y: hidden;
 }
 
 .dropdown .options.open {
   display: block;
+  max-height: 200px;
+  opacity: 1;
 }
 
 .dropdown .option {
+  width: 120px;
   box-sizing: border-box;
-  color: rgba(51, 51, 51, 0.8);
+  color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
-  display: block;
-  padding: 8px 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 6px;
+}
+
+.divoption {
+  width: 100px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
 }
 
 .dropdown .option.selected,
 .dropdown .option:hover {
   background-color: #f2f9fc;
   color: #333;
+}
+
+.dropdown ::placeholder {
+  color: black;
+}
+
+.dropdown img {
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
 }

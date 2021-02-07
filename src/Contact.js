@@ -37,10 +37,15 @@ const Contact = (props) => {
       });
   };
 
-//
+  //
 
   return (
-    <div className={props.selectedLang === "he" ? "app-contact-rtl" : "app-contact"} id="contact">
+    <div
+      className={
+        props.selectedLang === "he" ? "app-contact-rtl" : "app-contact"
+      }
+      id="contact"
+    >
       <form className="form_wrapper" onSubmit={handleSubmit}>
         <input
           placeholder={props.resumeData.fullname}
