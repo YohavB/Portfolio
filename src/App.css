@@ -491,7 +491,6 @@ input.text:focus,
   height: auto;
   transition: all 0.3s ease-in;
   -webkit-overflow-scrolling: touch;
-  overflow-y: hidden;
   right: 0;
 }
 

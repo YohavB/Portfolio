@@ -17,9 +17,9 @@ export default function LangSelector(props) {
   }, [props.selectedLang]);
 
   const data = [
-    { name: "English", code: "en-EN", flag: ukflag, func: props.toEn },
-    { name: "French", code: "fr-FR", flag: frflag, func: props.toFr },
-    { name: "Hebrew", code: "he", flag: ilflag, func: props.toHe },
+    { name: "English", code: "English", flag: ukflag, func: props.toEn },
+    { name: "French", code: "Français", flag: frflag, func: props.toFr },
+    { name: "Hebrew", code: "עברית", flag: ilflag, func: props.toHe },
   ];
 
   function setflag() {
