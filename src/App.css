@@ -125,7 +125,6 @@ h2 {
   border-right: none;
 }
 
-
 .nav li a {
   display: block;
   color: white;
@@ -450,10 +449,6 @@ input.text:focus,
   margin-right: 10px;
 }
 
-.langdrop .rtl {
-  margin: auto;
-  margin-left: 10px;
-}
 
 .dropdown {
   color: rgb(255, 251, 251);
@@ -479,6 +474,7 @@ input.text:focus,
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding-left: 8px;
 }
 
 .dropdown .options {
@@ -491,18 +487,32 @@ input.text:focus,
   max-height: 0;
   position: absolute;
   top: 100%;
-  width: 100%;
   z-index: 10;
   height: auto;
   transition: all 0.3s ease-in;
   -webkit-overflow-scrolling: touch;
   overflow-y: hidden;
+  right: 0;
 }
 
 .dropdown .options.open {
   display: block;
   max-height: 200px;
   opacity: 1;
+  right: 0;
+}
+
+.rtl.options{
+  left: 0;
+}
+
+.rtl.options.open {
+  display: block;
+  max-height: 200px;
+  opacity: 1;
+  left: 0;
+  margin: 0;
+
 }
 
 .dropdown .option {
@@ -519,7 +529,17 @@ input.text:focus,
   width: 100px;
   cursor: pointer;
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-between;
+}
+
+.divoption.rtl {
+  width: 100px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  left: 0;
 }
 
 .dropdown .option.selected,

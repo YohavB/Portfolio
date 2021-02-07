@@ -38,7 +38,7 @@ export default function LangDown({ options, prompt, label, id, selectedLang }) {
             />
           </div>
         </div>
-        <div className={`options ${open ? "open" : null}`}>
+        <div className={`${selectedLang=== "he" ? "rtl":null} options ${open ? "open" : null}`}>
           {options.map((option) => (
             <div
               key={option[id]}
@@ -50,7 +50,10 @@ export default function LangDown({ options, prompt, label, id, selectedLang }) {
                 selectOption(option);
               }}
             >
-              <div className="divoption" onClick={option.func}>
+              <div
+                className={`divoption ${selectedLang === "he" ? "rtl" : null}`}
+                onClick={option.func}
+              >
                 <img alt={option[id]} src={option.flag} />
                 <div>{option[id]}</div>
               </div>
