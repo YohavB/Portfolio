@@ -99,6 +99,15 @@ h2 {
   background-color: rgb(101, 124, 194);
 }
 
+.opennavbtn {
+  display: none;
+  z-index: 10;
+}
+
+.closenavbtn {
+  display: none;
+}
+
 .nav {
   z-index: 2;
   position: fixed;
@@ -136,40 +145,15 @@ h2 {
   background-color: #111;
 }
 
-.navrtl {
-  z-index: 2;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  background-color: transparent;
+.nav.rtl {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-around;
-  transition: top 0.3s; /* Transition effect when sliding down (and up) */
 }
-.navrtl li {
+.nav.rtl li {
   width: 100%;
   border-right: 1px solid #bbb;
   transition: 0.3s;
-}
-
-.navrtl li:last-child {
-  border-right: none;
-}
-
-.navrtl li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-.navrtl li:hover {
-  background-color: #111;
 }
 
 .app-about {
@@ -449,7 +433,6 @@ input.text:focus,
   margin-right: 10px;
 }
 
-
 .dropdown {
   color: rgb(255, 251, 251);
   cursor: default;
@@ -501,7 +484,7 @@ input.text:focus,
   right: 0;
 }
 
-.rtl.options{
+.rtl.options {
   left: 0;
 }
 
@@ -511,7 +494,6 @@ input.text:focus,
   opacity: 1;
   left: 0;
   margin: 0;
-
 }
 
 .dropdown .option {
@@ -520,7 +502,7 @@ input.text:focus,
   color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 8px 6px;
 }
 
@@ -555,4 +537,168 @@ input.text:focus,
   cursor: pointer;
   height: 25px;
   width: 25px;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+
+  .opennavbtn {
+    display: inherit;
+    position: fixed;
+    filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(88deg)
+      brightness(106%) contrast(102%);
+    width: 40px;
+    left: 10px;
+    top: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease-in;
+    z-index: 10;
+  }
+
+  .opennavbtn.open {
+    left: -40px;
+  }
+
+  .opennavbtn.rtl {
+    left: inherit;
+    right: 10px;
+  }
+
+  .opennavbtn.rtl.open {
+    left: inherit;
+    right: -40px;
+  }
+
+  .closenavbtn {
+    display: inherit;
+    filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(88deg)
+      brightness(106%) contrast(102%);
+    width: 25px;
+    cursor: pointer;
+    margin-left: 15px;
+    margin-top: 15px;
+  }
+
+  .closenavbtn.rtl {
+    margin-left: inherit;
+    margin-right: 15px;
+  }
+
+  .nav {
+    display: inline;
+    left: -150px;
+    width: 150px;
+    position: fixed;
+    height: 100%;
+    border-right: none;
+    transition: all 0.5s ease-in;
+    right: inherit;
+    background-color: #340957;
+  }
+
+  .nav.open {
+    display: inline;
+    left: 0;
+  }
+
+  .nav li {
+    display: flex;
+    flex-direction: column;
+    border-right: none;
+    border-bottom: 1px solid #bbb;
+  }
+  .nav.rtl {
+    display: inline;
+    right: -150px;
+    width: 150px;
+    position: fixed;
+    height: 100%;
+    border-right: none;
+    direction: rtl;
+    transition: all 0.5s ease-in;
+    left: inherit;
+  }
+  .nav.open.rtl {
+    display: inline;
+    right: 0;
+  }
+
+  .nav.rtl li {
+    display: flex;
+    flex-direction: column;
+    border-right: none;
+    border-bottom: 1px solid #bbb;
+  }
+
+  .langdrop {
+    margin-right: inherit;
+  }
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown .selected-value {
+    display: flex;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 200ms ease;
+    padding: inherit;
+    margin-top: 5px;
+  }
+
+  .dropdown .selected-value.rtl {
+    display: flex;
+    justify-content: center;
+    padding-left: inherit;
+  }
+
+  .dropdown .options {
+    display: block;
+    margin-top: -1px;
+    opacity: 0;
+    max-height: 0;
+    position: relative;
+    top: 100%;
+    z-index: 10;
+    height: auto;
+    transition: all 0.3s ease-in;
+    -webkit-overflow-scrolling: touch;
+    padding: 0px 6px;
+  }
+
+  .dropdown .options.open {
+    display: block;
+    max-height: 200px;
+    opacity: 1;
+  }
+
+  .rtl.options {
+    left: inherit;
+  }
+
+  .dropdown .option {
+    width: inherit;
+    box-sizing: border-box;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    display: block;
+    padding: inherit;
+    border-bottom: 1px solid white;
+    margin-bottom: 5px;
+  }
+  .divoption {
+    width: inherit;
+    padding: 4px;
+  }
+
+  .dropdown .option.selected,
+  .dropdown .option:hover {
+    background-color: #f2f9fc;
+    color: #333;
+  }
+
+  .dropdown ::placeholder {
+    color: black;
+  }
 }

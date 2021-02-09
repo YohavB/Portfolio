@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
+
 export default function LangDown({ options, prompt, label, id, selectedLang }) {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
@@ -38,7 +39,11 @@ export default function LangDown({ options, prompt, label, id, selectedLang }) {
             />
           </div>
         </div>
-        <div className={`${selectedLang=== "he" ? "rtl":null} options ${open ? "open" : null}`}>
+        <div
+          className={`${selectedLang === "he" ? "rtl" : null} options ${
+            open ? "open" : null
+          }`}
+        >
           {options.map((option) => (
             <div
               key={option[id]}
