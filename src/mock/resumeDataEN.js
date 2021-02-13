@@ -46,6 +46,7 @@ let resumeData = {
     company: "Company",
     dontbeashame: "Don't be ashame",
     submit: "Submit",
+    messagesent : "Thank You ! Your message has been submitted !",
   
   socialLinks: [
     {

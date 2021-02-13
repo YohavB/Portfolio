@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Resume from "./Yohav's Resume.pdf";
 import "font-awesome/css/font-awesome.min.css";
 import LangSelector from "./mock/LangSelector";
 
 import hamburger_icon from "./icon/hamburger_icon.svg";
 import close_icon from "./icon/close_icon.svg";
-import { faHamburger } from "@fortawesome/free-solid-svg-icons";
 
 export default function Header(props) {
   const [openNav, setOpenNav] = useState(false);
@@ -44,7 +43,7 @@ export default function Header(props) {
     }
   }
 
-  function toggle(e) {
+  function toggle() {
     setOpenNav((prev) => !prev);
   }
 

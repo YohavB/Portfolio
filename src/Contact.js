@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { db } from "./firebase";
 
 const Contact = (props) => {
+  const resumeData = props.resumeData;
   const [name, setName] = useState("");
   const [company, setCompagny] = useState("");
   const [mail, setMail] = useState("");
@@ -14,6 +15,17 @@ const Contact = (props) => {
     e.preventDefault();
     setLoader(true);
 
+    const templateId = "template_portfolio_YB";
+    const serviceID = "portfolio_YB_1206";
+    sendFeedback(serviceID, templateId, {
+      from_name: name,
+      from_mail: mail,
+      from_phone: phone,
+      from_company: company,
+      message: message,
+      reply_to: mail,
+    });
+
     db.collection("contact")
       .add({
         name: name,
@@ -23,7 +35,7 @@ const Contact = (props) => {
         company: company,
       })
       .then(() => {
-        alert("Message has been submitted");
+        alert(resumeData.messagesent);
         setLoader(false);
         setName("");
         setMail("");
@@ -37,6 +49,19 @@ const Contact = (props) => {
       });
   };
 
+  const sendFeedback = (serviceID, templateId, variables) => {
+    window.emailjs
+      .send(serviceID, templateId, variables)
+      .then((res) => {
+        console.log("Email successfully sent!");
+      })
+      .catch((err) =>
+        console.error(
+          "There has been an error.  Here some thoughts on the error that occured:",
+          err
+        )
+      );
+  };
   //
 
   return (
@@ -48,7 +73,7 @@ const Contact = (props) => {
     >
       <form className="form_wrapper" onSubmit={handleSubmit}>
         <input
-          placeholder={props.resumeData.fullname}
+          placeholder={resumeData.fullname}
           type="text"
           value={name}
           name="name"
@@ -56,7 +81,7 @@ const Contact = (props) => {
         />
 
         <input
-          placeholder={props.resumeData.tel}
+          placeholder={resumeData.tel}
           type="text"
           value={phone}
           name="tel"
@@ -64,14 +89,14 @@ const Contact = (props) => {
         />
 
         <input
-          placeholder={props.resumeData.email}
+          placeholder={resumeData.email}
           type="email"
           value={mail}
           name="mail"
           onChange={(e) => setMail(e.target.value)}
         />
         <input
-          placeholder={props.resumeData.company}
+          placeholder={resumeData.company}
           type="text"
           value={company}
           name="company"
@@ -81,7 +106,7 @@ const Contact = (props) => {
         <textarea
           rows="5"
           cols="33"
-          placeholder={props.resumeData.dontbeashame}
+          placeholder={resumeData.dontbeashame}
           className="textarea"
           type="textarea"
           value={message}
