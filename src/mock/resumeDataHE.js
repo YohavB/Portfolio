@@ -46,6 +46,12 @@ let resumeData = {
   dontbeashame: "אל תתביישו לכתוב פה משהו",
   submit: "שלח",
   messagesent: "תודה ! הודעתך נשלחה בהצלחה ",
+  invalidmail: "סליחה אבל נראה שכתובת מייל זו שגויה",
+  needmail: "כתובת מייל חובה",
+  invalidphone: "סליחה, רק מספרים אפשריים בהקלדת מספר טלפון",
+  invalidlengthphone: "סליחה אבל נראה שמספר זה שגוי",
+  errorbeforesubmit: "אי אפשר לשלוח בינתים, נראה שיש כמה טעויות",
+  emptyForm: "שדה זה חובה",
 
   socialLinks: [
     {

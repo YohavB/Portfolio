@@ -47,6 +47,13 @@ let resumeData = {
   dontbeashame: "Ne soyez pas timide",
   submit: "Envoyer",
   messagesent: "Merci ! Votre message a bien été envoyé !",
+  invalidmail: "Désolé… Cette adresse e-mail semble incorrecte",
+  needmail: "Désolé… Une adresse e-mail est obligatoire",
+  invalidphone: "Désolé, seuls des nombres sont autorisés",
+  invalidlengthphone: "Désolé… Ce numéro semble incorrect",
+  errorbeforesubmit:
+    "Impossible d'envoyer pour l'instant, il semble y avoir quelques erreurs",
+    emptyForm: "Ce champ est obligatoire",
 
   socialLinks: [
     {

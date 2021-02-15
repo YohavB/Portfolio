@@ -352,26 +352,60 @@ h2 {
   width: 70%;
   background: #6000aa;
   padding: 0%;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
   border-radius: 5px;
+}
+.fourwrapper {
+  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
 }
 
 .form_wrapper input,
 .form_wrapper textarea {
   background: #8300e9;
   border: none;
+  width: 80%;
   border-radius: 5px;
-  width: 40%;
   color: #fff !important;
   font-weight: 700 !important;
   letter-spacing: 2px !important;
   padding: 17px 15px !important;
-  margin: 2% 3%;
+  margin: 2% 0;
   resize: none;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+}
+
+.form_wrapper .inputanderror {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form_wrapper .inputanderror textarea {
+  width: 100%;
+}
+
+.errortext {
+  color: rgba(199, 33, 33, 1);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.errortext.last {
+  margin-top: 2%;
 }
 
 ::placeholder {
@@ -392,7 +426,7 @@ input.text:focus,
 
 .form_wrapper textarea:focus {
   height: 200px;
-  width: 86%;
+  width: 180%;
 }
 
 .form_wrapper button {
@@ -402,6 +436,7 @@ input.text:focus,
   letter-spacing: 2px;
   padding: 10px 12px;
   border-radius: 0;
+  margin-top: 2%;
   background: #19ffc0;
   color: rgba(0, 0, 0, 0.5);
   border: none;
@@ -409,10 +444,21 @@ input.text:focus,
   width: 100%;
 }
 
+.form_wrapper button.disabled {
+  cursor: not-allowed;
+  background-color: #ccc;
+}
+
 .form_wrapper button:hover {
   background: #f2bf2f;
   color: #fff;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.form_wrapper button.disabled:hover {
+  cursor: not-allowed;
+  background-color: #ccc;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .app-footer {
@@ -709,11 +755,26 @@ input.text:focus,
     flex-direction: column;
     justify-content: center;
     align-items: center;
-   
   }
 
   .form_wrapper input,
   .form_wrapper textarea {
     width: 80%;
+  }
+
+  .form_wrapper .inputanderror {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .errortext {
+    color: rgba(199, 33, 33, 1);
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 50%;
+    border-radius: 5px;
+    padding: 2px;
   }
 }
