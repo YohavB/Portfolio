@@ -51,7 +51,7 @@ let resumeData = {
   invalidphone: "סליחה, רק מספרים אפשריים בהקלדת מספר טלפון",
   invalidlengthphone: "סליחה אבל נראה שמספר זה שגוי",
   errorbeforesubmit: "אי אפשר לשלוח בינתים, נראה שיש כמה טעויות",
-  emptyForm: "שדה זה חובה",
+  emptyField: "שדה זה חובה",
 
   socialLinks: [
     {

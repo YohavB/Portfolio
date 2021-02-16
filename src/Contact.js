@@ -12,19 +12,23 @@ const Contact = (props) => {
 
   const [mailError, setMailError] = useState("");
   const [phoneError, setPhoneError] = useState("");
-  const [emptyError, setEmptyError] = useState("");
+  const [messageError, setMessageError] = useState("");
+  const [nameError, setNameError] = useState("");
 
-  const [emptyErrorForm, setEmptyErrorForm] = useState(null);
+  const [errorInForm, setErrorInForm] = useState(null);
 
   const [loader, setLoader] = useState(false);
 
   const validateEmail = () => {
     if (!mail) {
-      setMailError(resumeData.emptyForm);
+      setMailError(resumeData.emptyField);
+      setErrorInForm(true);
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(mail)) {
       setMailError(resumeData.invalidmail);
+      setErrorInForm(true);
     } else {
       setMailError("");
+      setErrorInForm(false);
     }
   };
 
@@ -32,33 +36,47 @@ const Contact = (props) => {
     setPhoneError("");
     if (!phone) {
       setPhoneError("");
-    } else if (phone.length > 13 || phone.length < 9) {
-      setPhoneError(resumeData.invalidlengthphone);
+      setErrorInForm(false);
     } else if (
-      !/^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/i.test(phone)
+      !/^\+?(\d{1,3})?[-.\s]?\(?\d{2,3}\)?[-.\s]?\d{2,3}[-.\s]?\d{2,3}([-.\s]?\d{2,3})?$/i.test(
+        phone
+      )
     ) {
-      setPhoneError(resumeData.invalidphone);
+      setPhoneError(resumeData.invalidlengthphone);
+      setErrorInForm(true);
     }
   };
 
-  const verifyEmpty = () => {
-    setEmptyError("");
-    if (!name || !message || !mail) {
-      setEmptyError(resumeData.emptyForm);
-      setEmptyErrorForm(true);
+  const validateMessage = () => {
+    setMessageError("");
+    if (!message) {
+      setMessageError(resumeData.emptyField);
+      setErrorInForm(true);
     } else {
-      setEmptyError("");
-      setEmptyErrorForm(false);
+      setMessageError("");
+      setErrorInForm(false);
     }
   };
 
-  var errorOnForm = phoneError || mailError;
+  const validateName = () => {
+    setNameError("");
+    if (!name) {
+      setNameError(resumeData.emptyField);
+      setErrorInForm(true);
+    } else {
+      setNameError("");
+      setErrorInForm(false);
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoader(true);
-    verifyEmpty();
-    if (emptyErrorForm) {
+    validateMessage();
+    validateName();
+    validatePhone();
+    validateEmail();
+    if (errorInForm) {
       const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
       const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
       const userID = process.env.REACT_APP_EMAILJS_USER_ID;
@@ -88,6 +106,7 @@ const Contact = (props) => {
           setPhone("");
           setMessage("");
           setCompagny("");
+          setErrorInForm(null);
         })
         .catch((error) => {
           alert(error.message);
@@ -124,12 +143,11 @@ const Contact = (props) => {
               placeholder={resumeData.fullname}
               type="text"
               value={name}
+              onBlur={validateName}
               name="name"
               onChange={(e) => setName(e.target.value)}
             />
-            {!name && emptyErrorForm && (
-              <div className="errortext">{resumeData.emptyForm}</div>
-            )}
+            {!name && nameError && <div className="errortext">{nameError}</div>}
           </div>
 
           <div className="inputanderror">
@@ -153,9 +171,7 @@ const Contact = (props) => {
               onBlur={validateEmail}
               onChange={(e) => setMail(e.target.value)}
             />
-            {!mail && emptyErrorForm && (
-              <div className="errortext">{resumeData.emptyForm}</div>
-            )}
+
             {mailError && <div className="errortext">{mailError}</div>}
           </div>
           <div className="inputanderror">
@@ -177,24 +193,24 @@ const Contact = (props) => {
             className="textarea"
             type="textarea"
             value={message}
-            onBlur={verifyEmpty}
+            onBlur={validateMessage}
             name="message"
             onChange={(e) => setMessage(e.target.value)}
           />
-          {!message && emptyErrorForm && (
-            <div className="errortext">{resumeData.emptyForm}</div>
+          {!message && messageError && (
+            <div className="errortext">{messageError}</div>
           )}
         </div>
 
-        {(errorOnForm || emptyErrorForm) && (
+        {errorInForm && (
           <div className="errortext last">{resumeData.errorbeforesubmit}</div>
         )}
 
         <button
-          className={errorOnForm || emptyError ? "disabled" : null}
+          className={errorInForm ? "disabled" : null}
           style={{ background: loader ? "#ccc" : "" }}
           onClick={handleSubmit}
-          disabled={errorOnForm || emptyError}
+          disabled={errorInForm}
         >
           {props.resumeData.submit}
         </button>

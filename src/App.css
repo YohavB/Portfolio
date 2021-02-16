@@ -770,10 +770,19 @@ input.text:focus,
     align-items: center;
   }
 
+  .form_wrapper .inputanderror textarea {
+    width: 80%;
+  }
+
+  .form_wrapper textarea:focus {
+    height: 200px;
+    width: 90%;
+  }
+
   .errortext {
     color: rgba(199, 33, 33, 1);
     background-color: rgba(0, 0, 0, 0.5);
-    width: 50%;
+    width: 80%;
     border-radius: 5px;
     padding: 2px;
   }

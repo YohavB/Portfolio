@@ -53,7 +53,7 @@ let resumeData = {
   invalidlengthphone: "Désolé… Ce numéro semble incorrect",
   errorbeforesubmit:
     "Impossible d'envoyer pour l'instant, il semble y avoir quelques erreurs",
-    emptyForm: "Ce champ est obligatoire",
+    emptyField: "Ce champ est obligatoire",
 
   socialLinks: [
     {
