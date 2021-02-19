@@ -52,7 +52,7 @@ let resumeData = {
   invalidphone: "Sorry, but only numbers are allowed",
   invalidlengthphone: "Sorry, it's seems like this phone number is not valid",
   errorbeforesubmit:
-    "You can't submit for now, It's seems like there are some mistakes",
+    "You can't submit for now, It's seems like there are some missing informations or some mistakes",
   emptyField: "This field is required",
 
   socialLinks: [

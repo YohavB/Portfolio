@@ -1,5 +1,5 @@
 import emailjs from "emailjs-com";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { db } from "./firebase";
 
 const Contact = (props) => {
@@ -15,20 +15,44 @@ const Contact = (props) => {
   const [messageError, setMessageError] = useState("");
   const [nameError, setNameError] = useState("");
 
-  const [errorInForm, setErrorInForm] = useState(null);
+  const [errorinForm, setErrorinForm] = useState(true);
+  const [submitError, setSubmitError] = useState(false);
 
   const [loader, setLoader] = useState(false);
+
+  useEffect(() => {
+    validateName();
+    validatePhone();
+    validateEmail();
+    validateMessage();
+    if (!mailError && !nameError && !phoneError && !messageError) {
+      setErrorinForm(false);
+    } else {
+      setErrorinForm(true);
+      setSubmitError(false);
+    }
+  }, [name, phone, message, mail, errorinForm]);
+
+  //usseffect pour recupo errorinform des le debut
+
+  useEffect(() => {
+    setErrorinForm(true);
+  }, []);
+
+  const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+  const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+  const userID = process.env.REACT_APP_EMAILJS_USER_ID;
 
   const validateEmail = () => {
     if (!mail) {
       setMailError(resumeData.emptyField);
-      setErrorInForm(true);
+      setErrorinForm(true);
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(mail)) {
       setMailError(resumeData.invalidmail);
-      setErrorInForm(true);
+      setErrorinForm(true);
     } else {
       setMailError("");
-      setErrorInForm(false);
+      setErrorinForm(false);
     }
   };
 
@@ -36,25 +60,24 @@ const Contact = (props) => {
     setPhoneError("");
     if (!phone) {
       setPhoneError("");
-      setErrorInForm(false);
+      setErrorinForm(false);
     } else if (
       !/^\+?(\d{1,3})?[-.\s]?\(?\d{2,3}\)?[-.\s]?\d{2,3}[-.\s]?\d{2,3}([-.\s]?\d{2,3})?$/i.test(
         phone
       )
     ) {
       setPhoneError(resumeData.invalidlengthphone);
-      setErrorInForm(true);
+      setErrorinForm(true);
     }
   };
 
   const validateMessage = () => {
-    setMessageError("");
     if (!message) {
       setMessageError(resumeData.emptyField);
-      setErrorInForm(true);
+      setErrorinForm(true);
     } else {
       setMessageError("");
-      setErrorInForm(false);
+      setErrorinForm(false);
     }
   };
 
@@ -62,56 +85,56 @@ const Contact = (props) => {
     setNameError("");
     if (!name) {
       setNameError(resumeData.emptyField);
-      setErrorInForm(true);
+      setErrorinForm(true);
     } else {
       setNameError("");
-      setErrorInForm(false);
+      setErrorinForm(false);
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoader(true);
-    validateMessage();
-    validateName();
-    validatePhone();
-    validateEmail();
-    if (errorInForm) {
-      const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-      const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-      const userID = process.env.REACT_APP_EMAILJS_USER_ID;
-
-      sendFeedback(serviceID, templateID, userID, {
-        from_name: name,
-        from_mail: mail,
-        from_phone: phone,
-        from_company: company,
-        message: message,
-        reply_to: mail,
-      });
-
-      db.collection("contact")
-        .add({
-          name: name,
-          mail: mail,
+    if (!errorinForm) {
+      console.log("message sent");
+      console.log(errorinForm);
+      setLoader(true);
+        sendFeedback(serviceID, templateID, userID, {
+          from_name: name,
+          from_mail: mail,
+          from_phone: phone,
+          from_company: company,
           message: message,
-          phone: phone,
-          company: company,
-        })
-        .then(() => {
-          alert(resumeData.messagesent);
-          setLoader(false);
-          setName("");
-          setMail("");
-          setPhone("");
-          setMessage("");
-          setCompagny("");
-          setErrorInForm(null);
-        })
-        .catch((error) => {
-          alert(error.message);
-          setLoader(false);
+          reply_to: mail,
         });
+
+        db.collection("contact")
+          .add({
+            name: name,
+            mail: mail,
+            message: message,
+            phone: phone,
+            company: company,
+          })
+          .then(() => {
+            alert(resumeData.messagesent);
+            setLoader(false);
+            setName("");
+            setMail("");
+            setPhone("");
+            setMessage("");
+            setCompagny("");
+            setErrorinForm(false)
+          })
+          .catch((error) => {
+            alert(error.message);
+            setLoader(false);
+            setErrorinForm(false)
+
+          });
+    } else {
+      setLoader(false);
+      console.log("message not send");
+      setSubmitError(true);
     }
   };
 
@@ -201,16 +224,15 @@ const Contact = (props) => {
             <div className="errortext">{messageError}</div>
           )}
         </div>
-
-        {errorInForm && (
+        {submitError && (
           <div className="errortext last">{resumeData.errorbeforesubmit}</div>
         )}
 
         <button
-          className={errorInForm ? "disabled" : null}
-          style={{ background: loader ? "#ccc" : "" }}
+          className={submitError ? "disabled" : null}
+          style={{ background: loader ? "#ccc" : null }}
           onClick={handleSubmit}
-          disabled={errorInForm}
+          disabled={submitError}
         >
           {props.resumeData.submit}
         </button>

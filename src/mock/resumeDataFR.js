@@ -52,7 +52,7 @@ let resumeData = {
   invalidphone: "Désolé, seuls des nombres sont autorisés",
   invalidlengthphone: "Désolé… Ce numéro semble incorrect",
   errorbeforesubmit:
-    "Impossible d'envoyer pour l'instant, il semble y avoir quelques erreurs",
+    "Impossible d'envoyer pour l'instant, il manque des informations ou y avoir quelques erreurs",
     emptyField: "Ce champ est obligatoire",
 
   socialLinks: [
