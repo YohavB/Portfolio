@@ -10,6 +10,7 @@ import whatsapp from "../icon/whatsapp.svg";
 import phone from "../icon/phone.svg";
 import mongodb from "../icon/mongodb.svg";
 import firebase from "../icon/google-firebase.svg";
+import redux from "../icon/redux.svg";
 import ukflag from "../icon/united-kingdom.svg";
 import frflag from "../icon/france.svg";
 import ilflag from "../icon/israel.svg";
@@ -50,7 +51,8 @@ let resumeData = {
   needmail: "כתובת מייל חובה",
   invalidphone: "סליחה, רק מספרים אפשריים בהקלדת מספר טלפון",
   invalidlengthphone: "סליחה אבל נראה שמספר זה שגוי",
-  errorbeforesubmit: "אי אפשר לשלוח בינתים, נראה שחסרים נתונים או שקיימות טעויות",
+  errorbeforesubmit:
+    "אי אפשר לשלוח בינתים, נראה שחסרים נתונים או שקיימות טעויות",
   emptyField: "שדה זה חובה",
 
   socialLinks: [
@@ -144,11 +146,11 @@ let resumeData = {
     "למדתי בצורה אצמעית את כל הכישורים מטה בזכות אינטרנט ואין סוף מתכנתים הודים",
   skills: [
     {
-      skillname: "HTML",
+      skillname: "HTML5",
       icon: html5,
     },
     {
-      skillname: "CSS",
+      skillname: "CSS3",
       icon: css3,
     },
     {
@@ -163,6 +165,7 @@ let resumeData = {
       skillname: "Reactjs",
       icon: react,
     },
+    { skillname: "Redux", icon: redux },
     {
       skillname: "Firebase",
       icon: firebase,
@@ -211,9 +214,9 @@ let resumeData = {
     {
       name: "Weather Website",
       description:
-        "Get live weather from all the world just by searching, the CSS change depends on the result and work with API",
-      gitlink: "https://github.com/YohavB/weather-app",
-      live: "https://weatherapp-yb.web.app/",
+        "Get live weather from around the world simply by searching for the name of a country or city, fetching data via Accu-Weather API. Favorites save locally, initial weather according to GPS position, Celsius - Fahrenheit, React Redux for state management ",
+      gitlink: "https://github.com/YohavB/Yohav-Benoliel-27-02-2021",
+      live: "https://accu-weather-by-yb.web.app/",
     },
     {
       name: "Sweet Wonders",

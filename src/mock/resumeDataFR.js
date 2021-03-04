@@ -10,6 +10,7 @@ import whatsapp from "../icon/whatsapp.svg";
 import phone from "../icon/phone.svg";
 import mongodb from "../icon/mongodb.svg";
 import firebase from "../icon/google-firebase.svg";
+import redux from "../icon/redux.svg";
 import ukflag from "../icon/united-kingdom.svg";
 import frflag from "../icon/france.svg";
 import ilflag from "../icon/israel.svg";
@@ -53,7 +54,7 @@ let resumeData = {
   invalidlengthphone: "Désolé… Ce numéro semble incorrect",
   errorbeforesubmit:
     "Impossible d'envoyer pour l'instant, il manque des informations ou y avoir quelques erreurs",
-    emptyField: "Ce champ est obligatoire",
+  emptyField: "Ce champ est obligatoire",
 
   socialLinks: [
     {
@@ -145,11 +146,11 @@ let resumeData = {
     "J'ai appris, et j'apprends encore, toutes les compétences ci-dessous par moi-même grâce à INTERNET et à son infinité de développeurs indiens",
   skills: [
     {
-      skillname: "HTML",
+      skillname: "HTML5",
       icon: html5,
     },
     {
-      skillname: "CSS",
+      skillname: "CSS3",
       icon: css3,
     },
     {
@@ -164,6 +165,7 @@ let resumeData = {
       skillname: "Reactjs",
       icon: react,
     },
+    { skillname: "Redux", icon: redux },
     {
       skillname: "Firebase",
       icon: firebase,
@@ -212,9 +214,9 @@ let resumeData = {
     {
       name: "Site Météo",
       description:
-        "Obtenez la météo en direct du monde entier simplement en recherchant le nom d'un pays ou d'une ville, le changement CSS dépend du résultat et fonctionne via un API.",
-      gitlink: "https://github.com/YohavB/weather-app",
-      live: "https://weatherapp-yb.web.app/",
+        "Obtenez la météo en direct du monde entier simplement en recherchant le nom d'un pays ou d'une ville, obtention des données via Accu-Weather API. Fonction de favoris enregistrer localement, météo initiale selon position GPS, Celsius - Fahrenheit, React Redux pour gérer le state global",
+      gitlink: "https://github.com/YohavB/Yohav-Benoliel-27-02-2021",
+      live: "https://accu-weather-by-yb.web.app/",
     },
     {
       name: "Sweet Wonders",
